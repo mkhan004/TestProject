@@ -1,16 +1,16 @@
 # atom-lightning-bolt
 
 ## What is this?
-atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
+> atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
 
 ## Features
-* Support custom request in YAML file.
-* Ability to process miltiple request files.
-* Can validate Headers, Response Code and Content (Positive and Negative).
-* Supports command line switch of Test Environment (default QA).
-* Can write and delete Test Data in s3 Bucket.
-* Outputs responses, body, errors
-* Supports JWTs
+>* Support custom request in YAML file.
+>* Ability to process miltiple request files.
+>* Can validate Headers, Response Code and Content (Positive and Negative).
+>* Supports command line switch of Test Environment (default QA).
+>* Can write and delete Test Data in s3 Bucket.
+>* Outputs responses, body, errors
+>* Supports JWTs
 
 ## Regression Suite Folder Structure
 
@@ -48,19 +48,19 @@ atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
     ├── plugins                           # Contains plugins JS files, used for custom response validation
     │   ├── plugins.js
     │   └── ...
-    └── ...    
+    └── ...
     
 
 ## Supported API
-* ProducConfig
-* Jasper
+>* ProducConfig
+>* Jasper
 
 ## Setup Instructions
-* Collect Regression Test sute from [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites).
+>* Collect Regression Test sute from [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites).
 
 ## bolt-data-writer
-If you want push fresh copy of your Test Data in s3 cucket then first you need to `delete` existing Test Data then `write` new data.
-<b>Note:</b> You may need to wait untill default caching time is over to get new data in API response.
+> If you want to publish fresh copy of your Test Data in s3 cucket then first you need to `delete` existing Test Data then `write` new data.
+> <b>Note:</b> You may need to wait untill default caching time is over to get new data in API response.
 
 ### To Write Test Data
 ```
