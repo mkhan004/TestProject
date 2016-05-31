@@ -73,6 +73,30 @@ atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
     * Just run `npm install`
 * To Execute Test `npm test`.
 
+## Run Test Locally From [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites)
+* Clone [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites)
+* `cd` to [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites)
+* To run test using `npm`
+    * Update package.json Script's `test` argument value for target API
+    ```
+    "scripts": {
+        "test": "./node_modules/.bin/atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv"
+    }
+    ```
+    * To run test
+    ```
+    npm install -g jasmine-node
+    npm install
+    npm test
+    ```
+* To run test from Command Line:
+    * To run test
+    ```
+    npm install -g jasmine-node
+    npm install
+    ./node_modules/.bin/atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv
+    ```
+
 ## bolt-data-writer
 If you want to publish fresh copy of your Test Data in s3 cucket then first you need to `delete` existing Test Data then `write` new data.
 <b>Note:</b> You may need to wait untill default caching time is over to get new data in API response.
@@ -89,5 +113,5 @@ bolt-data-writer :regressionSuitePath :env delete
 ```
 npm install -g jasmine-node
 npm install -g @abot/atom-lightning-bolt
-atom-lightning-bolt --config folder :regressionSuitePath --config testEnv :targetTestEnv
+atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv
 ```
