@@ -118,6 +118,17 @@ docker build -t lightningbolt .
 ```
 docker run -v $PWD/testOutput:/root/atom.api.testsuites/testOutput -e testFolder={regressionSuiteName} -e environment={targetTestEnv} lightningbolt
 ```
+## Run Test directly from `atom-lightning-bolt`
+* Clone this [atom-lightning-bolt] (https://github.com/KaplanTestPrep/atom-lightning-bolt) repo.
+* `cd` within `atom-lightning-bolt`.
+* To Run Test
+```
+npm install -g jasmine-node
+npm install
+npm link
+atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv
+```
+
 
 ## bolt-data-writer
 If you want to publish fresh copy of your Test Data in s3 cucket then first you need to `delete` existing Test Data then `write` new data.
@@ -130,10 +141,4 @@ bolt-data-writer :regressionSuitePath :env write
 ### To Delete Test Data
 ```
 bolt-data-writer :regressionSuitePath :env delete
-```
-## To Run Test
-```
-npm install -g jasmine-node
-npm install -g @abot/atom-lightning-bolt
-atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv
 ```
