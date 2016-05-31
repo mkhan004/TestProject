@@ -56,7 +56,7 @@ atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
 * Jasper
 
 ## Integration & Setup Instructions for Supported API
-* Collect or update Matching Regression Test suite from [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites).
+* Collect latest Matching Regression Test suite from [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites).
 * For First Time Setup
     * Do `npm login` using `abot` credentials.
     * Locally install `@abot/atom-lightning-bolt` and save as devDependency.
@@ -96,6 +96,28 @@ atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
     npm install
     ./node_modules/.bin/atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv
     ```
+
+## TeamCity Setup
+There is two steps in setup and execute test in TeamCity. In `first step`: We need to create a TeamCity project for `atom-lightning-bolt` then setup build step to create a docker image. In `second step`: Create Build Configuration for each test environment for any new API test.
+
+### Step 1: Docker Image Build
+* Create a TeamCity project for `atom-lightning-bolt` using this [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites) repo.
+* Create a `Command Line` Build Step using following command:
+```
+docker build -t lightningbolt .
+```
+
+### Step 2: Create Build Configuration
+* Create a new Build Configuration in `atom-lightning-bolt` project for target API and Test Environment.
+* Configuration Naming Convention
+    * `:regressionSuiteName :targetTestEnv`
+    * Example:
+        * `productConfig gateway-qa`
+        * `productConfig qa`
+* Create a `Command Line` Build Step using following command:
+```
+docker run -v $PWD/testOutput:/root/atom.api.testsuites/testOutput -e testFolder={regressionSuiteName} -e environment={targetTestEnv} lightningbolt
+```
 
 ## bolt-data-writer
 If you want to publish fresh copy of your Test Data in s3 cucket then first you need to `delete` existing Test Data then `write` new data.
