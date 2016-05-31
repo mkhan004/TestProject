@@ -55,8 +55,23 @@ atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
 * ProducConfig
 * Jasper
 
-## Setup Instructions
-* Collect Regression Test sute from [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites).
+## Integration & Setup Instructions for Supported API
+* Collect or update Matching Regression Test suite from [Atom.Api.TestSuites] (https://github.com/KaplanTestPrep/Atom.Api.TestSuites).
+* For First Time Setup
+    * Do `npm login` using `abot` credentials.
+    * Locally install `@abot/atom-lightning-bolt` and save as devDependency.
+    ```
+    npm install @abot/atom-lightning-bolt --save
+    ```
+    * Add following Script argument in package.json
+    ```
+    "scripts": {
+        "test": "./node_modules/.bin/atom-lightning-bolt . --config folder :regressionSuitePath --config testEnv :targetTestEnv"
+    }
+    ```
+* For Existing Setup
+    * Just run `npm install`
+* To Execute Test `npm test`.
 
 ## bolt-data-writer
 If you want to publish fresh copy of your Test Data in s3 cucket then first you need to `delete` existing Test Data then `write` new data.
@@ -73,6 +88,6 @@ bolt-data-writer :regressionSuitePath :env delete
 ## To Run Test
 ```
 npm install -g jasmine-node
-npm install -g atom-lightning-bolt
+npm install -g @abot/atom-lightning-bolt
 atom-lightning-bolt --config folder :regressionSuitePath --config testEnv :targetTestEnv
 ```
