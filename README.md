@@ -109,7 +109,7 @@ docker build -t lightningbolt .
 
 ### Step 2: Create Build Configuration
 * Create a new Build Configuration in `atom-lightning-bolt` project for target API and Test Environment.
-* Configuration Naming Convention
+* Build Configuration Naming Convention
     * `:regressionSuiteName :targetTestEnv`
     * Example:
         * `productConfig gateway-qa`
