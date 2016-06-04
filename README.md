@@ -1,5 +1,9 @@
 # atom-lightning-bolt
 
+[![NPM](https://nodei.co/npm/practicekhan.png)](https://nodei.co/npm/practicekhan/)
+[![Build
+Status](https://travis-ci.org/vlucas/frisby.png?branch=master)](https://travis-ci.org/vlucas/frisby)
+
 ## What is this?
 atom-lightning-bolt is a jasmine-node based API test framework using Frisby.
 
